@@ -3,8 +3,12 @@
   "name": "org.aspern/aspern",
   "title": "ASPERN: counterparty checks for agents",
   "description": "What the chain records about an address before you pay it, and whether a payment fits it.",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "websiteUrl": "https://aspern.org",
+  "repository": {
+    "url": "https://github.com/aspern-org/aspern-docs",
+    "source": "github"
+  },
   "icons": [
     {
       "src": "https://aspern.org/aspern-navicon-512.png",
