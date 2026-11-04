@@ -1,0 +1,23 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "org.aspern/aspern",
+  "title": "ASPERN: counterparty checks for agents",
+  "description": "What the chain records about an address before you pay it, and whether a payment fits it.",
+  "version": "1.2.0",
+  "websiteUrl": "https://aspern.org",
+  "icons": [
+    {
+      "src": "https://aspern.org/aspern-navicon-512.png",
+      "mimeType": "image/png",
+      "sizes": [
+        "512x512"
+      ]
+    }
+  ],
+  "remotes": [
+    {
+      "type": "streamable-http",
+      "url": "https://aspern.org/mcp"
+    }
+  ]
+}

@@ -1,0 +1,157 @@
+{
+  "name": "ASPERN",
+  "description": "Independent evidence about autonomous capital and the agent economy, read from public sources. Its counterparty tools answer what the chain records about an address before you pay or hire it.",
+  "url": "https://aspern.org",
+  "version": "1.0.0",
+  "provider": {
+    "organization": "ASPERN",
+    "url": "https://aspern.org"
+  },
+  "kind": "service",
+  "says": "A service that answers questions. It is not an autonomous agent and decides nothing on its own behalf.",
+  "capabilities": {
+    "streaming": false,
+    "pushNotifications": false
+  },
+  "defaultInputModes": [
+    "application/json"
+  ],
+  "defaultOutputModes": [
+    "application/json"
+  ],
+  "services": [
+    {
+      "protocol": "mcp",
+      "transport": "http",
+      "endpoint": "https://aspern.org/mcp",
+      "says": "JSON-RPC over POST: initialize, tools/list, tools/call. No key needed for the free tools."
+    },
+    {
+      "protocol": "openapi",
+      "endpoint": "https://aspern.org/api/v1/openapi.json",
+      "says": "The whole read surface, 73 operations."
+    }
+  ],
+  "skills": [
+    {
+      "id": "identify",
+      "name": "Work out which party an identifier belongs to",
+      "description": "Give it a transaction hash, an http(s) URL, a hostname or an ERC-8004 registration number and it says which party that is, with the evidence for the link. Where more than one party matches it returns none and lists them all rather than picking. Free.",
+      "tags": [
+        "identity",
+        "resolution",
+        "agents",
+        "due-diligence"
+      ],
+      "endpoint": "https://aspern.org/api/v1/identify",
+      "priceUsd": 0
+    },
+    {
+      "id": "preflight_payment",
+      "name": "Check a payment before you send it",
+      "description": "Weighs one proposed payment against the record: the price the seller published for that endpoint, the payee that endpoint names, the largest payment the address has ever received, and whether it has been paid on the chain you are about to use. Three verdicts, and it never says a payment is safe. Free.",
+      "tags": [
+        "trust",
+        "payments",
+        "due-diligence",
+        "agents"
+      ],
+      "endpoint": "https://aspern.org/api/v1/preflight",
+      "priceUsd": 0
+    },
+    {
+      "id": "counterparty_check",
+      "name": "Check a counterparty before paying it",
+      "description": "What the chain records about an address: counterparties that paid it and were never paid back, the ones it pays back, how concentrated its custom is, how its jobs ended, whether its service answers, when it was last paid. Free.",
+      "tags": [
+        "trust",
+        "payments",
+        "due-diligence",
+        "agents"
+      ],
+      "endpoint": "https://aspern.org/api/v1/agents/{address}/check",
+      "priceUsd": 0
+    },
+    {
+      "id": "find_agents",
+      "name": "Find agents by their record",
+      "description": "Filter every address ever paid on x402, ACP, the Olas mech marketplace or Masumi by what it has actually done. Free.",
+      "tags": [
+        "discovery",
+        "agents",
+        "hiring"
+      ],
+      "endpoint": "https://aspern.org/api/v1/counterparty/agents",
+      "priceUsd": 0
+    },
+    {
+      "id": "counterparty_history",
+      "name": "How that record has moved",
+      "description": "The same record day by day, so a good history can be told from a recent one. Paid.",
+      "tags": [
+        "trust",
+        "history",
+        "monitoring"
+      ],
+      "endpoint": "https://aspern.org/api/v1/agents/{address}/history",
+      "priceUsd": 0.01,
+      "payment": {
+        "protocol": "x402",
+        "scheme": "exact",
+        "asset": "USDC"
+      }
+    },
+    {
+      "id": "counterparty_bulk",
+      "name": "Check a list of counterparties",
+      "description": "Up to fifty addresses in one call, each with its observations. Paid, per call rather than per address.",
+      "tags": [
+        "trust",
+        "bulk",
+        "screening"
+      ],
+      "endpoint": "https://aspern.org/api/v1/counterparty/bulk",
+      "priceUsd": 0.01,
+      "payment": {
+        "protocol": "x402",
+        "scheme": "exact",
+        "asset": "USDC"
+      }
+    },
+    {
+      "id": "evaluate_vault_decision",
+      "name": "Judge a vault decision before capital moves",
+      "description": "Send a proposed allocation, the mandate it must stay inside and the claims it rests on; get a verdict against our due-diligence snapshot of the vault, every finding citing the field it rests on. Paid; free as a dry run and on the two public sample vaults.",
+      "tags": [
+        "capital",
+        "vaults",
+        "due-diligence",
+        "decisions"
+      ],
+      "endpoint": "https://aspern.org/api/v1/evaluate/vault-decision",
+      "priceUsd": 2,
+      "payment": {
+        "protocol": "x402",
+        "scheme": "exact",
+        "asset": "USDC"
+      }
+    }
+  ],
+  "limits": [
+    "An identifier we cannot resolve is not evidence against it, and a hostname is who claims to be there rather than proof of control.",
+    "Independent means no payment back on the rails we read. It is not proof that two payers are different parties.",
+    "An all-time record says nothing about whether an agent still works; 44% of agents ever paid had not been paid in 90 days, measured on 29 September 2026.",
+    "An address absent from a result was never paid on a rail we read, which is not the same as never having worked."
+  ],
+  "registrations": [
+    {
+      "standard": "ERC-8004",
+      "chain": "eip155:1",
+      "agentId": "51172",
+      "owner": "0xb1f0dc5b04a553855524ae6c2e6def85028d0e7b",
+      "uri": "https://aspern.org/.well-known/agent-card.json",
+      "registeredAt": "2026-09-23T07:51:48.946Z"
+    }
+  ],
+  "registrationsNote": "Read back from the chain by the same reader that reads every other registration, rather than typed in here. If that reader cannot see one, this card does not claim it."
+}
