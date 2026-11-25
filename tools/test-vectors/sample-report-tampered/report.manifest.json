@@ -1,0 +1,31 @@
+{
+ "manifest": {
+  "v": 3,
+  "kid": "ed25519-test-vector",
+  "subject": "test-vault",
+  "dataDigest": "cbaa6e0ef4d9bad92441af875d3ee37ca1e0da382a0a1052628c54265942996f",
+  "issuedAt": "2026-11-24T00:00:00.000Z",
+  "model": "risk-4",
+  "reportSchemaVersion": "2026-11-22.1",
+  "warnings": [
+   "NOT_REREAD_AT_ISSUE"
+  ],
+  "agentRulesSha256": "fb0aba258bc41571bedc5f074c52a52b041ab6be48164a4402f751e6bbe263b3",
+  "sanctionsListDigest": null,
+  "signedAt": "2026-11-24T00:00:01.000Z",
+  "methodologyVersion": "aspern-0.5",
+  "generatorBuild": "test-vector",
+  "keysUrl": "https://aspern.org/api/v1/evidence-keys",
+  "supersedes": null,
+  "reportId": "cbaa6e0ef4d9bad92441af875d3ee37ca1e0da382a0a1052628c54265942996f",
+  "displayId": "cbaa6e0ef4d9",
+  "reportIssuedAt": null,
+  "sourceObservedOldestAt": null,
+  "sourceObservedNewestAt": null,
+  "revision": null,
+  "changedConclusions": null
+ },
+ "signature": "1itwmL69MPHd6UdxTs1Jbt6BFxWaapkJJYLng8KrlLygN5I9k6lpdQfj2AoMWH5hk0r2xfbJQC5m5B0CT_kVAw",
+ "alg": "Ed25519",
+ "signedBytes": "{\"agentRulesSha256\":\"fb0aba258bc41571bedc5f074c52a52b041ab6be48164a4402f751e6bbe263b3\",\"changedConclusions\":null,\"dataDigest\":\"cbaa6e0ef4d9bad92441af875d3ee37ca1e0da382a0a1052628c54265942996f\",\"displayId\":\"cbaa6e0ef4d9\",\"generatorBuild\":\"test-vector\",\"issuedAt\":\"2026-11-24T00:00:00.000Z\",\"keysUrl\":\"https://aspern.org/api/v1/evidence-keys\",\"kid\":\"ed25519-test-vector\",\"methodologyVersion\":\"aspern-0.5\",\"model\":\"risk-4\",\"reportId\":\"cbaa6e0ef4d9bad92441af875d3ee37ca1e0da382a0a1052628c54265942996f\",\"reportIssuedAt\":null,\"reportSchemaVersion\":\"2026-11-22.1\",\"revision\":null,\"sanctionsListDigest\":null,\"signedAt\":\"2026-11-24T00:00:01.000Z\",\"sourceObservedNewestAt\":null,\"sourceObservedOldestAt\":null,\"subject\":\"test-vault\",\"supersedes\":null,\"v\":3,\"warnings\":[\"NOT_REREAD_AT_ISSUE\"]}"
+}

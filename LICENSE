@@ -6,3 +6,5 @@ Copyright (c) 2026 ASPERN.
 
 This licence does not cover the ASPERN service, its data, or its source code.
 Terms for those: https://aspern.org/terms
+
+The code in tools/ (including tools/verify-report.mjs and its test vectors) is licensed under the MIT License; see tools/LICENSE.

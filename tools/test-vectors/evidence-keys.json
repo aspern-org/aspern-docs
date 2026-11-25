@@ -1,0 +1,49 @@
+{
+ "keys": [
+  {
+   "kid": "ed25519-v1",
+   "kty": "OKP",
+   "crv": "Ed25519",
+   "algorithm": "Ed25519",
+   "alg": "EdDSA",
+   "x": "ts4G-DqNeDeaHwUEK6LI5G38bIL8kGHZst8JNQzzkdQ",
+   "use": "evidence-manifest",
+   "purposes": [
+    "evidence-manifest",
+    "pdf-attestation"
+   ],
+   "status": "active",
+   "since": "2026-11-07",
+   "validFrom": "2026-11-07T00:00:00.000Z",
+   "validUntil": null,
+   "validTo": null,
+   "revokedAt": null,
+   "revocationReason": null,
+   "fingerprintSha256": "b1e025bb22ebe8835fa9fe8459b08c22ceb57d1e99f6c912a220258ab0e928c8"
+  }
+ ],
+ "revocations": [],
+ "keysUrl": "https://aspern.org/api/v1/evidence-keys",
+ "bundleUrl": "https://aspern.org/evidence-keys.json",
+ "apiBase": "https://aspern.org/api",
+ "verifier": "https://aspern.org/verify-report.mjs",
+ "testVectors": "https://aspern.org/evidence-test-vectors.json",
+ "verifyPage": "https://aspern.org/verify",
+ "signedBytes": "Each signature is Ed25519 (RFC 8032, pure, no pre-hash) over the UTF-8 bytes of one canonical JSON text, and that text is also published beside the signature as signedBytes. Manifest signature: the canonical JSON of the manifest object. PDF attestation signature: the canonical JSON of the attestation object. Canonical JSON: object keys sorted by UTF-16 code units (JavaScript's default sort, so \"Z\" < \"a\" < \"é\" and an astral character sorts by its high surrogate), no whitespace, keys whose value is undefined dropped, arrays in order; strings exactly as ECMAScript JSON.stringify writes them (only \", \\ and control characters escaped, \\b \\f \\n \\r \\t in short form and other controls as lowercase \\u00xx, a lone surrogate as \\udxxx, every other character as itself in UTF-8); numbers as ECMAScript Number::toString writes them (shortest round-trip digits; exponent form below 1e-6 and from 1e21, written e-7 and e+21, never zero-padded; -0 as 0). A manifest and an attestation carry only strings, integers, null and arrays of strings, so no fractional number is ever inside signed bytes. The readings are not re-serialised by anyone: dataDigest is SHA-256 over the readings file exactly as delivered. That file is itself written in the canonical form, but a tool that parses and re-writes it (Python json.dumps writes 1.493231643952987e-05 where the file has 0.00001493231643952987, and 1e-08 where it has 1e-8) produces other bytes and another hash. Hash the bytes, never a re-serialisation. Signature encoding: base64url without padding (RFC 4648 §5). Public key: JWK OKP/Ed25519, x the raw 32 bytes in base64url; its fingerprint is SHA-256 of those 32 bytes in hex.",
+ "keyPolicy": "Rotation: a new key gets the next kid (ed25519-v2), is added to this archive and starts signing; the old key moves to retired with validUntil set and stays published for as long as any report it signed is kept, so old reports still verify. Revocation: a key believed exposed is marked revoked with revokedAt and a reason; signatures by it are no longer trusted, and the reports it signed are re-attested under the new key. Trust anchor: a key fetched from aspern.org proves only that a signature matches the key aspern.org presents. To trust the key independently, compare its fingerprint with a copy obtained another way: the bundle at https://aspern.org/evidence-keys.json, the archive in the source code (packages/shared/src/evidence-keys.ts), or a copy you saved earlier. The times inside a manifest or attestation are ASPERN's own record, not an independent timestamp.",
+ "superseding": "A signed report is never changed. A correction is issued as a new report with its own digest, manifest and attestation; the earlier one is listed in revocations as superseded, with the digest of the report that replaces it. Its signature still verifies, and the verifier reports it as superseded rather than current.",
+ "statuses": {
+  "hash_matches": "The files you hold hash to the digests the signed documents name: the readings to dataDigest, the PDF to pdfSha256.",
+  "signature_valid_for_key": "The Ed25519 signature verifies over the published signed bytes with the key named by kid. The signature matches the named public key; origin is established only if the key was independently authenticated and valid at signing. It says nothing about whether the figures are true.",
+  "fail:unknown_kid": "The key set was read, and it holds no key with the kid the document names: the signature cannot be ASPERN's.",
+  "key_trusted_archived": "That key is in the published archive, was valid when the document was signed, is not revoked, and matches a pinned fingerprint where you gave one.",
+  "report_not_revoked": "The report is not listed as revoked or superseded.",
+  "origin_established": "established only where every signature verifies, every key is trusted at signing and its fingerprint was pinned from a copy obtained another way. A key known but not trusted (revoked, outside its validity, not the one pinned), or taken from the publisher alone, reads \"signature valid, origin unverified\".",
+  "data_accuracy_not_independently_verified": "Always stated: none of the above checks whether the readings are true or the analysis right.",
+  "signature_unverified:key_unavailable": "The key set could not be fetched or read, so the signature was neither confirmed nor refuted."
+ },
+ "signatureMeans": "The signature matches the named public key; origin is established only if the key was independently authenticated and valid at signing. A valid signature does not prove the figures are true, complete or current.",
+ "publishedFingerprints": {
+  "ed25519-v1": "b1e025bb22ebe8835fa9fe8459b08c22ceb57d1e99f6c912a220258ab0e928c8"
+ }
+}
