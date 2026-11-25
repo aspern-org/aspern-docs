@@ -1,0 +1,26 @@
+{
+ "keys": [
+  {
+   "kid": "ed25519-test-vector",
+   "kty": "OKP",
+   "crv": "Ed25519",
+   "algorithm": "Ed25519",
+   "alg": "EdDSA",
+   "x": "5Dg28QOZc4ngRLMiDEU6hIcngvddcBZSPOdzQCL9f-g",
+   "use": "evidence-manifest",
+   "purposes": [
+    "evidence-manifest",
+    "pdf-attestation"
+   ],
+   "status": "active",
+   "since": "2026-01-01",
+   "validFrom": "2026-01-01T00:00:00.000Z",
+   "validUntil": null,
+   "validTo": null,
+   "revokedAt": null,
+   "revocationReason": null,
+   "fingerprintSha256": "d9b09d71a68ac58876109d707fec399a588af5a8cdcaaa71c7fbb8789de3a7f1"
+  }
+ ],
+ "revocations": []
+}

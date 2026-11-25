@@ -1,0 +1,19 @@
+{
+ "data": {
+  "attestation": {
+   "v": 2,
+   "kind": "aspern.pdf-attestation",
+   "kid": "ed25519-test-vector",
+   "docId": "cbaa6e0ef4d9",
+   "dataDigest": "cbaa6e0ef4d9bad92441af875d3ee37ca1e0da382a0a1052628c54265942996f",
+   "pdfSha256": "c57687fd8c1d724a9eeed4ae943fd71f9ca3ed06f8db2daa30d1bf595bfe354a",
+   "slug": "test-vault",
+   "issuedAt": "2026-11-24T00:00:00.000Z",
+   "attestedAt": "2026-11-24T00:00:02.000Z",
+   "keysUrl": "https://aspern.org/api/v1/evidence-keys"
+  },
+  "signature": "pbwNKUOS2URfUN3Dtp7qw86O_jBj-oiV2XSxxuZtq0QdpUTTzryRA5h3l2rSZo0i2syGZKEm6qY8iDmmzslSCA",
+  "alg": "Ed25519",
+  "signedBytes": "{\"attestedAt\":\"2026-11-24T00:00:02.000Z\",\"dataDigest\":\"cbaa6e0ef4d9bad92441af875d3ee37ca1e0da382a0a1052628c54265942996f\",\"docId\":\"cbaa6e0ef4d9\",\"issuedAt\":\"2026-11-24T00:00:00.000Z\",\"keysUrl\":\"https://aspern.org/api/v1/evidence-keys\",\"kid\":\"ed25519-test-vector\",\"kind\":\"aspern.pdf-attestation\",\"pdfSha256\":\"c57687fd8c1d724a9eeed4ae943fd71f9ca3ed06f8db2daa30d1bf595bfe354a\",\"slug\":\"test-vault\",\"v\":2}"
+ }
+}
